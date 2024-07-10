@@ -6,15 +6,15 @@ import SolutionPage from "../pages/solutions";
 import ServicePage from "../pages/services";
 
 const AppRoutes = () => {
-    return (
-        <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/news" element={<NewsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/solution" element={<SolutionPage />} />
-            <Route path="/service" element={<ServicePage />} />
-        </Routes>
-    )
-}
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/news" element={<NewsPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/solution" element={<SolutionPage />} />
+      <Route path="/service" element={<ServicePage />} />
+    </Routes>
+  );
+};
 
 export default AppRoutes;
