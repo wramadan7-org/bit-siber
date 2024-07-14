@@ -40,7 +40,7 @@ const NavbarComponent = () => {
                   onClick={() => handleShowDropdown(itemParent?.label)}
                 >
                   <div className="flex flex-row gap-2 items-center hover:cursor-pointer">
-                    <span className="text-center uppercase font-[800] text-[1rem] text-[#ffffff]">
+                    <span className="text-center uppercase font-[800] text-[14px] text-[#ffffff]">
                       {itemParent?.label}
                     </span>
 
@@ -55,7 +55,7 @@ const NavbarComponent = () => {
                             type="button"
                             className="w-full h-fit flex items-center justify-start py-1 px-[20px] text-black hover:bg-[#072b72] hover:text-[#ffffff] border-b-2 last:border-none"
                           >
-                            <span className="text-center uppercase font-[300] text-[1rem]">
+                            <span className="text-center uppercase font-[300] text-[14px]">
                               {itemChildren?.label}
                             </span>
                           </button>
@@ -71,7 +71,7 @@ const NavbarComponent = () => {
                   className="w-full h-full border-none outline-none"
                   onClick={() => handleChangePage(itemParent?.path)}
                 >
-                  <span className="text-center m-auto font-[300] text-[1rem] text-[#d8d8d8]">
+                  <span className="text-center m-auto font-[300] text-[14px] text-[#d8d8d8]">
                     {itemParent?.label?.toUpperCase()}
                   </span>
                 </button>
