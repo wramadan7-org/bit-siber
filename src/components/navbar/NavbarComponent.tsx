@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import LogoBitSiber from "../../assets/images/logo-bit-siber.png";
 import { navbars } from "../../constants/navbar";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { AiOutlineGlobal } from "react-icons/ai";
 import { useState } from "react";
 
 const NavbarComponent = () => {
@@ -79,7 +80,21 @@ const NavbarComponent = () => {
             </div>
           ))}
       </div>
-      <div></div>
+      <div className="flex flex-row items-center justify-end">
+        <button
+          type="button"
+          className="flex flex-row gap-2 justify-center items-center outline-none border-none"
+        >
+          <AiOutlineGlobal className="w-[24px] h-[24px] text-[#ffffff]" />
+
+          <div className="flex flex-row gap-1 items-center">
+            <span className="text-[#ffffff] font-[600] text-[14px] uppercase">
+              EN
+            </span>
+            <MdKeyboardArrowDown className="w-[24px] h-[24px] text-[#ffffff]" />
+          </div>
+        </button>
+      </div>
     </section>
   );
 };
