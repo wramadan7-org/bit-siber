@@ -57,10 +57,13 @@
   font-size: 20px;
 }
 
-.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
   width: fit-content;
   bottom: 0;
-  left: 10%;
+  left: 25%;
 }
 
 .swiper-pagination-lock {
