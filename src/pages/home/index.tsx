@@ -17,6 +17,9 @@ import SmartPatrolContentHandImage from "../../assets/images/smart-patrol-docume
 import SmartPatrolPhone1 from "../../assets/images/smart-patrol-phone-1.png";
 import SmartPatrolPhone2 from "../../assets/images/smart-patrol-phone2.png";
 import ScrollSvg from "../../assets/svgs/scroll.svg";
+import { BiSolidQuoteLeft, BiSolidQuoteRight } from "react-icons/bi";
+import VisitormanagementContentImage from "../../assets/images/visitor-management.png";
+import VisitorManagementSystemImage from "../../assets/images/visitor-management-system-.png";
 
 const HomePage = () => {
   document.title = "BIT Siber";
@@ -162,7 +165,7 @@ const HomePage = () => {
         <div className="grid grid-cols-2 items-center absolute top-1/2 transform -translate-y-1/2 gap-16 px-[171px]">
           <img
             src={SmartPatrolContentImage}
-            alt="snart-patrol"
+            alt="smart-patrol"
             className="w-[637px] h-[772px] object-center object-contain"
           />
 
@@ -247,6 +250,111 @@ const HomePage = () => {
                 className="h-[810px] object-cover object-center"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative flex items-center justify-center w-full min-h-[1025px] bg-[#F6F6F6]">
+        <div className="relative flex flex-row items-center">
+          <div className="bg-[#D7E4FC] h-screen max-h-[586px] rounded-[10px] w-full max-w-[597px] px-[26px] py-10 flex flex-col gap-16">
+            <div className="text-[#072B72] text-center flex flex-col items-center justify-center gap-5">
+              <span className="text-[36px] font-[700] leading-tight ">
+                The benefits of <br /> Smart Patrol
+              </span>
+              <div className="w-full h-[7px] px-[40%]">
+                <div className="w-full h-full bg-[#072B72]" />
+              </div>
+            </div>
+            <div className="relative">
+              <BiSolidQuoteLeft className="text-[#1C49A0] text-[32px] absolute -top-10 left-0" />
+              <BiSolidQuoteRight className="text-[#1C49A0] text-[32px] absolute -bottom-10 right-0" />
+              <span className="text-[#3F68B3] text-[18px] font-[700]">
+                Defining Smart Patrol is very broad, including improving the
+                efficiency of managing attendance, leave, patrol and guest data
+                centrally, and facilitating real-time and structured monitoring
+                of employee activities. The system also strengthens security
+                with SOS and patrol features, supports various types of
+                attendance and requests, and provides easy and transparent
+                access to attendance and activity data.
+              </span>
+            </div>
+          </div>
+          <div className="bg-[#BACEF4] h-screen max-h-[638px] rounded-[10px] w-full max-w-[597px] px-[36px] py-16 flex flex-col gap-16 z-10 -ml-1">
+            <div className="text-[#072B72] text-center flex flex-col items-center justify-center gap-5">
+              <span className="text-[36px] font-[700] leading-tight ">
+                The benefits of <br /> Smart Patrol
+              </span>
+              <div className="w-full h-[7px] px-[40%]">
+                <div className="w-full h-full bg-[#072B72]" />
+              </div>
+            </div>
+            <div className="relative">
+              <BiSolidQuoteLeft className="text-[#0A214F] text-[32px] absolute -top-10 left-0" />
+              <BiSolidQuoteRight className="text-[#0A214F] text-[32px] absolute -bottom-10 right-0" />
+              <span className="text-[#0A214F] text-[18px] font-[700]">
+                Smart Patrol supports clocking in, clocking out and overtime,
+                conducting online and offline patrols with photo documentation,
+                and managing important notifications such as SOS and
+                instructions. It also enables leave and reimbursement
+                application and management, tracks attendance schedules,
+                attendance history, patrol data, incidents, and guests, and
+                provides activity information in the form of charts and tables.
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative h-fit w-full items-center flex justify-center">
+        <img
+          src={VisitormanagementContentImage}
+          className="h-full w-full object-cover object-center"
+          alt="visitor-management-system"
+        />
+
+        <div className="grid grid-cols-2 items-center absolute top-1/2 transform -translate-y-1/2 gap-16 px-[171px]">
+          <div className="flex flex-col gap-3">
+            <TitleComponent
+              title="Visitor Management System"
+              width={121}
+              isCenter={false}
+            />
+
+            <p className="font-[400] text-[18px] text-[#ffffff]">
+              A flap barrier gate is a type of pedestrian access control
+              mechanism commonly used in areas where there is a need to restrict
+              or control the flow of people. These gates typically consist of a
+              series of retractable barriers or flaps that can swing open to
+              allow authorized individuals to pass through and then close to
+              prevent unauthorized access.
+            </p>
+            <p className="font-[400] text-[18px] text-[#ffffff]">
+              Flap barrier gates are commonly used in places like office
+              buildings, train stations, airports, stadiums, and other public
+              venues where there is a need to regulate the movement of people.
+              They are often integrated with access control systems such as
+              keycard readers, biometric scanners, or ticketing systems to
+              ensure that only authorized individuals are able to pass through.
+            </p>
+
+            <p className="font-[400] text-[18px] text-[#ffffff]">
+              These gates offer a more secure and controlled access solution
+              compared to simple turnstiles or gates, as the flaps physically
+              block access and can only be opened for one person at a time. This
+              helps to prevent tailgating or unauthorized entry by individuals
+              trying to follow closely behind someone who has been granted
+              access. Overall, flap barrier gates are a popular choice for
+              organizations looking to enhance security and control pedestrian
+              flow in various environments.
+            </p>
+          </div>
+
+          <div className="h-[605px]">
+            <img
+              src={VisitorManagementSystemImage}
+              alt="smart-patrol"
+              className="w-[637px] h-[772px] object-center object-contain"
+            />
           </div>
         </div>
       </section>
