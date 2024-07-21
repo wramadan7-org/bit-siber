@@ -3,11 +3,11 @@ import HeaderVideo from "../../assets/videos/Y2meta.app-Smart City Digital City 
 import TitleComponent from "../../components/titles/TitleComponent";
 import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md";
 import FirstContentImage from "../../assets/images/need-solution.png";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./style.css";
-import { Pagination } from "swiper/modules";
+import { Keyboard, Pagination } from "swiper/modules";
 import SmartPatrolSwiperImage from "../../assets/images/smart-patrol-swiper.png";
 import VisitorManagementSwiperImage from "../../assets/images/visitor-management-swiper.png";
 import TicketingSwiperImage from "../../assets/images/ticketing-swiper.png";
@@ -20,9 +20,53 @@ import ScrollSvg from "../../assets/svgs/scroll.svg";
 import { BiSolidQuoteLeft, BiSolidQuoteRight } from "react-icons/bi";
 import VisitormanagementContentImage from "../../assets/images/visitor-management.png";
 import VisitorManagementSystemImage from "../../assets/images/visitor-management-system-.png";
+import FBL500 from "../../assets/images/FBL500 1.png";
+import FBL520 from "../../assets/images/FBL520 v1 1.png";
+import TicketingManagementSystem from "../../assets/images/ticketing-group.png";
+import { useCallback, useEffect, useRef } from "react";
+import { documentationTicketingManagementSystems } from "../../constants/swiper";
+import { benefitCards, usabilityCards } from "../../constants/card";
+import FooterComponent from "../../components/footer/FooterComponent";
 
 const HomePage = () => {
   document.title = "BIT Siber";
+
+  const ticketingSwiperRef = useRef<SwiperClass | null>(null);
+
+  const updatesSlideRotation = useCallback((swiper: SwiperClass) => {
+    const slides = swiper.slides;
+    const activeIndex = swiper.activeIndex;
+    slides.forEach((slide, index: number) => {
+      slide.classList.remove("rotate-left", "rotate-right");
+      const offset = Math.abs(index - activeIndex);
+      if (offset > 0) {
+        if (index < activeIndex) {
+          slide.classList.add("rotate-left");
+        } else {
+          slide.classList.add("rotate-right");
+        }
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    if (ticketingSwiperRef.current) {
+      const swiper = ticketingSwiperRef.current;
+      updatesSlideRotation(swiper);
+
+      swiper.on("slideChange", () => {
+        updatesSlideRotation(swiper);
+      });
+
+      swiper.on("transitionStart", () => {
+        updatesSlideRotation(swiper);
+      });
+
+      swiper.on("transitionEnd", () => {
+        updatesSlideRotation(swiper);
+      });
+    }
+  }, [updatesSlideRotation]);
 
   return (
     <section>
@@ -114,8 +158,10 @@ const HomePage = () => {
             slidesPerView={2}
             spaceBetween={30}
             pagination={{ clickable: true }}
-            modules={[Pagination]}
-            className="swiper absolute"
+            keyboard={true}
+            grabCursor
+            modules={[Pagination, Keyboard]}
+            className="smart-patrol-swiper absolute"
             loop
           >
             <SwiperSlide>
@@ -358,6 +404,305 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      <section className="min-h-[822px] bg-[#F2F2F2] flex flex-col px-[171px]">
+        <div className="pt-[57px] flex flex-col gap-10">
+          <div className="flex flex-col items-center justify-center gap-5">
+            <span className="text-[#043FB3] font-[800] text-[50px] text-center">
+              Documentation Visiting
+              <br /> Management System
+            </span>
+            <button
+              type="button"
+              className="border border-[#072B72] px-[9px] py-[14px] max-h-[40px] max-w-[131px] flex flex-row items-center justify-center gap-1"
+            >
+              <span className="text-[14px] font-[500] text-[#072B72] uppercase">
+                SEE MORE
+              </span>
+              <MdKeyboardArrowRight className="w-[22px] h-[22px] text-[#072B72]" />
+            </button>
+          </div>
+          <div className="flex flex-row justify-evenly gap-[57px] h-full py-5 overflow-x-scroll max-w-[1.062.81px] px-[134.19px] hide-scrollbar">
+            <div className="min-h-[415.11px] max-h-[415.11px] w-fit h-full border-[4px] border-[#EAE6E6] relative bg-[#EAE6E6] rounded-[20px] flex items-center justify-center p-[40px]">
+              {/* <div className="w-[330.39] h-[342.04] flex items-center justify-center"> */}
+              <div className="px-[24px] py-[10px] bg-[#072B72] absolute top-2/3 right-[98%] text-center rounded-[5px]">
+                <span className="font-[700] text-[26px] text-[#ffffff]">
+                  FBL500
+                </span>
+              </div>
+              <img
+                src={FBL500}
+                alt="FBL500"
+                className="w-full h-full object-cover object-center"
+              />
+              {/* </div> */}
+            </div>
+            <div className="h-screen max-h-[368px] my-auto border-dashed border border-[#A3A3A3]" />
+            <div className="min-h-[415.11px] max-h-[415.11px] w-fit h-full border-[4px] border-[#EAE6E6] relative bg-[#EAE6E6] rounded-[20px] flex items-center justify-center p-[40px]">
+              {/* <div className="w-[330.39] h-[342.04] flex items-center justify-center"> */}
+              <div className="px-[24px] py-[10px] bg-[#072B72] absolute top-1/2 left-[98%] text-center rounded-[5px]">
+                <span className="font-[700] text-[26px] text-[#ffffff]">
+                  FBL520
+                </span>
+              </div>
+              <img
+                src={FBL520}
+                alt="FBL520"
+                className="w-full h-full object-cover object-center"
+              />
+              {/* </div> */}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="flex flex-row flex-wrap min-h-[1021px] h-fit bg-[#F6F6F6] px-[171px] py-[100px]">
+        <div className="flex flex-col flex-1 items-center justify-center">
+          <div className="gap-y-[20px] flex flex-col leading-10">
+            <span className="text-[#072B72] font-[600] text-[36px] ">
+              Feature Visiting
+              <br /> Management
+              <br /> System
+            </span>
+
+            <div className="bg-[#072B72] w-[94px] h-[9px]" />
+          </div>
+        </div>
+        <div className="flex flex-1 flex-col gap-y-[20px] items-start justify-center relative">
+          <div className="absolute -left-5 h-full border-[3px] border-[#0D43AC] rounded-sm" />
+          <div className="absolute -left-[23.2px] w-[12px] h-[12px] border-[3px] border-[#0D43AC] rounded-full top-10 z-20 bg-white" />
+          <div className="absolute -left-[23.2px] w-[12px] h-[12px] border-[3px] border-[#0D43AC] rounded-full bottom-10 z-20 bg-white" />
+          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+            <span className="text-[#072B72] font-[500] text-[16px]">
+              Person information structure: based on Face Unique Biometric ID
+            </span>
+          </div>
+          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+            <span className="text-[#072B72] font-[500] text-[16px]">
+              Supports 4 attendance status, including check in and check out
+              (overtime in and overtime out are done by software)
+            </span>
+          </div>
+          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+            <span className="text-[#072B72] font-[500] text-[16px]">
+              Supports multiple languages: English, Indonesian, Vietnamese,
+              Thais, Philippines, Bahasa Melayu
+            </span>
+          </div>
+          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+            <span className="text-[#072B72] font-[500] text-[16px]">
+              Configurable with local private cloud or on-premise Authentication
+              server
+            </span>
+          </div>
+          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+            <span className="text-[#072B72] font-[500] text-[16px]">
+              7-inch LCD screen to display time, date, week, and attendance
+              information Max
+            </span>
+          </div>
+          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+            <span className="text-[#072B72] font-[500] text-[16px]">
+              Unlimited users as no data stored in the device and Max. 100,000
+              events records
+            </span>
+          </div>
+          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+            <span className="text-[#072B72] font-[500] text-[16px]">
+              Two attendance authentication modes: authentication by person,
+              authentication by device
+            </span>
+          </div>
+          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+            <span className="text-[#072B72] font-[500] text-[16px]">
+              Generates the attendance report automatically and views the
+              attendance data easily
+            </span>
+          </div>
+          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+            <span className="text-[#072B72] font-[500] text-[16px]">
+              Can be integrated with 3rd Party appliance, such as Gates,
+              Turnstile, Door and etc.
+            </span>
+          </div>
+          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+            <span className="text-[#072B72] font-[500] text-[16px]">
+              IP address conflict detection
+            </span>
+          </div>
+          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+            <span className="text-[#072B72] font-[500] text-[16px]">
+              Works properly with Lithium battery when powering off
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative h-fit w-full max-h-[1000px] items-center flex justify-center overflow-hidden">
+        <img
+          src={VisitormanagementContentImage}
+          className="h-full w-full object-cover object-center"
+          alt="visitor-management-system"
+        />
+
+        <div className="grid grid-cols-2 items-center absolute top-1/2 transform -translate-y-1/2 gap-16 px-[171px]">
+          <div className="flex flex-col gap-3">
+            <TitleComponent
+              title="TICKETING MANAGAMENT SYSTEM"
+              width={121}
+              isCenter={false}
+            />
+
+            <p className="font-[400] text-[18px] text-[#ffffff]">
+              The app converts facial feature data into a secure SQRC format,
+              enabling reliable ID authentication without the need for internet
+              connectivity or additional devices. With key features such as
+              secure access without an internet connection, no need for data
+              storage on servers-enhancing user privacy, and ensuring fast and
+              reliable entry to the venue, the app is ideal for venues that need
+              a secure and efficient ticketing solution that protects user
+              privacy.
+            </p>
+          </div>
+
+          <div className="w-full max-w-[768.31px]">
+            <img
+              src={TicketingManagementSystem}
+              alt="ticketing-management-system"
+              className="w-full h-full object-center object-contain transform scale-125"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="flex flex-col w-full h-full max-h-[846px] bg-[#F2F2F2] px-[171px] items-center justify-start pt-[87.5px] gap-[62px]">
+        <div className="flex flex-col items-center justify-start gap-6">
+          <span className="font-[800] text-[50px] text-[#043FB3] text-center leading-[63px]">
+            Documentation Ticketing <br /> Management System
+          </span>
+          <button
+            type="button"
+            className="flex flex-row gap-2 items-center justify-center border border-[#072B72] px-[9px] py-3 max-w-[131px] max-h-[40px] "
+          >
+            <span className="text-[#072B72] text-[14px] font-[500] ">
+              SEE MORE
+            </span>
+            <MdKeyboardArrowRight className="w-[22px] h-[22px] text-[#072B72]" />
+          </button>
+        </div>
+        <div className="relative flex flex-1 min-h-[505px] w-full overflow-hidden">
+          <Swiper
+            slidesPerView={5}
+            centeredSlides={true}
+            spaceBetween={10}
+            pagination={true}
+            initialSlide={2}
+            grabCursor
+            className="ticketing-swiper absolute -bottom-9"
+            loop
+            onSwiper={(swiper) => {
+              ticketingSwiperRef.current = swiper;
+              updatesSlideRotation(swiper);
+            }}
+            keyboard={true}
+            modules={[Keyboard]}
+          >
+            {documentationTicketingManagementSystems?.map(
+              (item: { image: string }, index: number) => (
+                <SwiperSlide
+                  key={index}
+                  className="max-w-[226px] min-w-[226px] min-h-[484px] border-[5px]"
+                >
+                  <img src={item?.image} alt={`ticketing-${index + 1}`} />
+                </SwiperSlide>
+              ),
+            )}
+          </Swiper>
+        </div>
+      </section>
+
+      <section className="flex flex-col w-full h-full max-h-[1067px] max-w-[1879px] bg-[#F6F6F6] py-[100px] px-[171px] gap-[120px] ">
+        <div className="grid grid-cols-12">
+          <div className="col-span-4">
+            <div className="flex flex-col gap-5">
+              <span className="font-[600] text-[36px] text-[#072B72] leading-[45.36px] ">
+                Benefits of Concert <br /> Ticketing App
+              </span>
+              <div className="h-[9px] w-[94px] bg-[#072B72] " />
+            </div>
+          </div>
+          <div className="col-span-8 flex flex-row items-center justify-start gap-[24px]">
+            {benefitCards?.map(
+              (
+                item: { title: string; description: string; image: string },
+                index: number,
+              ) => (
+                <div
+                  key={index}
+                  className="bg-[#FBFBFB] w-full max-w-[316px] h-full rounded-[5px] flex flex-col overflow-hidden"
+                >
+                  <div className="h-[115px] w-full">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
+                  <div className="pt-5 pb-8 px-2 flex flex-col gap-[15px]">
+                    <span className="font-[600] text-[#072B72] text-[24px] leading-[30.24px] ">
+                      {item.title}
+                    </span>
+                    <span className="font-[400] text-[#90A3C9] text-[16px] leading-[20.16px] ">
+                      {item.description}
+                    </span>
+                  </div>
+                </div>
+              ),
+            )}
+          </div>
+        </div>
+        <div className="grid grid-cols-12">
+          <div className="col-span-4">
+            <div className="flex flex-col gap-5">
+              <span className="font-[600] text-[36px] text-[#072B72] leading-[45.36px] ">
+                Usability of Concert <br /> Ticketing Application
+              </span>
+              <div className="h-[9px] w-[94px] bg-[#072B72] " />
+            </div>
+          </div>
+          <div className="col-span-8 flex flex-row items-center justify-start gap-[24px]">
+            {usabilityCards?.map(
+              (
+                item: { title: string; description: string; image: string },
+                index: number,
+              ) => (
+                <div
+                  key={index}
+                  className="bg-[#FBFBFB] w-full max-w-[316px] h-full rounded-[5px] flex flex-col overflow-hidden"
+                >
+                  <div className="h-[115px] w-full">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
+                  <div className="pt-5 pb-8 px-2 flex flex-col gap-[15px]">
+                    <span className="font-[600] text-[#072B72] text-[24px] leading-[30.24px] ">
+                      {item.title}
+                    </span>
+                    <span className="font-[400] text-[#90A3C9] text-[16px] leading-[20.16px] ">
+                      {item.description}
+                    </span>
+                  </div>
+                </div>
+              ),
+            )}
+          </div>
+        </div>
+      </section>
+
+      <FooterComponent />
     </section>
   );
 };

@@ -12,7 +12,6 @@ const NavbarComponent = () => {
   );
 
   const handleChangePage = (pathParam: string) => {
-    console.log(pathParam);
     navigate(pathParam);
   };
 
@@ -23,7 +22,7 @@ const NavbarComponent = () => {
   };
 
   return (
-    <section className="grid grid-cols-3 content-center px-[171px] py-[20px]">
+    <section className="grid grid-cols-3 mx-auto content-center px-[171px] py-[20px] max-w-[1879px]">
       <div className="w-[162px] h-[59px]">
         <img
           src={LogoBitSiber}
