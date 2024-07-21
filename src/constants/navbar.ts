@@ -1,45 +1,45 @@
 export const navbars = [
   {
-    path: "/",
+    path: "/#",
     label: "home",
     children: [],
   },
   {
-    path: "/news",
+    path: "/#",
     label: "news",
     children: [],
   },
   {
-    path: "/contact",
+    path: "/#",
     label: "contact",
     children: [],
   },
   {
-    path: "/solution",
+    path: "/#",
     label: "solutions",
     children: [
-			{
-				path: "/connection",
-				label: "connection",
-			},
-			{
-				path: "/relation",
-				label: "relation",
-			}
-		],
+      {
+        path: "/#",
+        label: "connection",
+      },
+      {
+        path: "/#",
+        label: "relation",
+      },
+    ],
   },
   {
-    path: "/service",
+    path: "/#",
     label: "service",
     children: [
-			{
-				path: "/connection",
-				label: "connection",
-			},
-			{
-				path: "/relation",
-				label: "relation",
-			}
-		],
+      {
+        path: "/#",
+        label: "connection",
+      },
+      {
+        path: "/#",
+        label: "relation",
+      },
+    ],
   },
 ];
