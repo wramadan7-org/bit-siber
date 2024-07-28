@@ -5,8 +5,9 @@ import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 import "./style.css";
-import { Keyboard, Pagination } from "swiper/modules";
+import { Keyboard, Pagination, Navigation } from "swiper/modules";
 import SmartPatrolSwiperImage from "../../assets/images/smart-patrol-swiper.png";
 import VisitorManagementSwiperImage from "../../assets/images/visitor-management-swiper.png";
 import TicketingSwiperImage from "../../assets/images/ticketing-swiper.png";
@@ -24,6 +25,10 @@ import { useCallback, useEffect, useRef } from "react";
 import { documentationTicketingManagementSystems } from "../../constants/swiper";
 import { benefitCards, usabilityCards } from "../../constants/card";
 import FooterComponent from "../../components/footer/FooterComponent";
+import {
+  IoMdArrowDropleftCircle,
+  IoMdArrowDroprightCircle,
+} from "react-icons/io";
 
 const HomePage = () => {
   document.title = "BIT Siber";
@@ -66,7 +71,7 @@ const HomePage = () => {
   }, [updatesSlideRotation]);
 
   return (
-    <section>
+    <section className="mx-auto overflow-x-hidden">
       <section className="sticky top-0 bg-transparent z-30 h-0">
         <NavbarComponent />
       </section>
@@ -121,7 +126,7 @@ const HomePage = () => {
       </section>
 
       <section className="relative grid grid-cols-2 w-full h-fit min-h-[451px] bg-[#072B72] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] items-center justify-center -mt-1 gap-3 py-20 lg:py-0">
-        <div className="flex flex-col col-span-2 lg:col-span-1 items-center justify-center lg:items-start lg:justify-center h-full gap-5">
+        <div className="flex flex-col col-span-2 lg:col-span-1 items-center justify-center lg:items-start lg:justify-center h-full gap-5 lg:pr-10">
           <span className="font-[800] text-[32px] text-[#ffffff] text-center lg:text-start">
             EXPLORE OUR PRODUCTS
           </span>
@@ -142,16 +147,46 @@ const HomePage = () => {
             <MdKeyboardArrowRight className="w-[22px] h-[22px] text-[#ffffff]" />
           </button>
         </div>
-        <div className="h-full w-full relative col-span-2 lg:col-span-1">
+        <div className="h-full w-full relative col-span-2 lg:col-span-1 smart-patrol-swiper">
           <Swiper
-            slidesPerView={2}
-            spaceBetween={30}
+            slidesPerView={1}
+            spaceBetween={0}
             pagination={{ clickable: true }}
             keyboard={true}
             grabCursor
-            modules={[Pagination, Keyboard]}
-            className="smart-patrol-swiper"
             loop
+            centeredSlides
+            modules={[Pagination, Keyboard, Navigation]}
+            navigation={{
+              nextEl: ".custom-next",
+              prevEl: ".custom-prev",
+            }}
+            className="z-20"
+            breakpoints={{
+              479: {
+                spaceBetween: 20,
+                loop: true,
+              },
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+                centeredSlides: false,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+                centeredSlides: false,
+                rewind: true,
+                loop: true,
+                // loopAddBlankSlides: true,
+                // loopAdditionalSlides: 1,
+              },
+              1024: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+                centeredSlides: false,
+              },
+            }}
           >
             <SwiperSlide>
               <img
@@ -186,7 +221,48 @@ const HomePage = () => {
                 Ticketing
               </span>
             </SwiperSlide>
+            {/* <SwiperSlide>
+              <img
+                src={SmartPatrolSwiperImage}
+                alt="smart-patrol"
+                className="w-[195px] h-[238px] object-cover"
+              />
+
+              <span className="font-[700] text-[#072B72] text-[24px] ">
+                Smart Patrol
+              </span>
+            </SwiperSlide>
+            <SwiperSlide>
+              {" "}
+              <img
+                src={VisitorManagementSwiperImage}
+                alt="visitor-management"
+                className="w-[195px] h-[238px] object-cover"
+              />
+              <span className="font-[700] text-[#072B72] text-[24px] ">
+                Visitor Management
+              </span>
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={TicketingSwiperImage}
+                alt="ticketing"
+                className="w-[195px] h-[238px] object-cover"
+              />
+
+              <span className="font-[700] text-[#072B72] text-[24px] ">
+                Ticketing
+              </span>
+            </SwiperSlide> */}
           </Swiper>
+          <div className="custom-navigation flex flex-row justify-between absolute -left-4 -right-4 sm:-left-10 sm:-right-10 md:-left-12 md:-right-12 top-1/2 h-10">
+            <div className="custom-prev cursor-pointer z-20">
+              <IoMdArrowDropleftCircle className="w-10 h-10 z-20 text-[#0569d3] sm:text-white" />
+            </div>
+            <div className="custom-next cursor-pointer z-20">
+              <IoMdArrowDroprightCircle className="w-10 h-10 z-20 text-[#0569d3] sm:text-white" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -230,8 +306,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="relative flex items-start justify-center w-full min-h-[838px] bg-[#F2F2F2]">
-        <div className="absolute transform top-14 left-1/2 -translate-x-1/2 flex flex-col justify-start items-center h-full w-full max-w-[396px]  max-h-[191px] gap-5 align-bottom">
+      <section className="relative flex items-start justify-center w-full min-h-[838px] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px]">
+        <div className="absolute transform top-14 left-1/2 -translate-x-1/2 flex flex-col justify-start items-center h-full w-full max-w-[396px]  max-h-[191px] gap-5 align-bottom z-20">
           <span className="text-[#043FB3] font-[800] text-clamp-50 text-center lg:leading-[60px]">
             Documentation Smart Patrol
           </span>
@@ -245,17 +321,15 @@ const HomePage = () => {
             <MdKeyboardArrowRight className="w-[22px] h-[22px] text-[#072B72]" />
           </button>
         </div>
-        <div className="px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] w-full flex flex-row gap-2 relative">
-          <div className="relative flex flex-1">
-            <div className="absolute bottom-0 left-0 w-full">
-              <img
-                src={SmartPatrolContentHandImage}
-                alt="smart-patrol"
-                className="w-[600px] h-[551px]"
-              />
-            </div>
+        <div className="w-full flex flex-row gap-2 justify-end relative bg-transparent">
+          <div className="absolute bottom-0 transform md:translate-x-1 md:left-40 w-full">
+            <img
+              src={SmartPatrolContentHandImage}
+              alt="smart-patrol"
+              className="w-[600px] h-[551px] object-center object-cover"
+            />
           </div>
-          <div className="absolute bottom-5 right-28 border flex flex-col w-[44px] h-fit">
+          <div className="absolute bottom-5 -right-2 md:-right-10 z-10 flex flex-col w-[44px] h-fit">
             <img
               src={ScrollSvg}
               alt="scroll"
@@ -267,14 +341,14 @@ const HomePage = () => {
             </span>
           </div>
           <div className="flex flex-col overflow-y-scroll overflow-x-hidden w-[366px] h-[838px] relative hide-scrollbar">
-            <div className="w-full h-[736px] transform scale-[1.1] flex items-center justify-center">
+            <div className="w-full h-[736px] transform md:scale-[1.1] flex items-center justify-center">
               <img
                 src={SmartPatrolPhone1}
                 alt="smart-patrol-phone-1"
                 className="h-[810px] object-cover object-center"
               />
             </div>
-            <div className="w-full h-[736px] transform scale-[1.1] flex items-center justify-center">
+            <div className="w-full h-[736px] transform md:scale-[1.1] flex items-center justify-center">
               <img
                 src={SmartPatrolPhone2}
                 alt="smart-patrol-phone-2"
