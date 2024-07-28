@@ -24,9 +24,9 @@ const FooterComponent = () => {
       <div className="w-[10rem] z-30 h-full bg-transparent rounded-l-full absolute bottom-0 -right-[7rem] overflow-hidden">
         <div className="w-full h-full bg-[#1345A8] r-full"></div>
       </div>
-      <div className="container mx-auto px-[171px] py-10 bg-[#072B72] relative">
-        <div className="flex flex-row flex-wrap justify-between z-40">
-          <div className="flex flex-col">
+      <div className="w-full py-10 bg-transparent relative z-50">
+        <div className="grid grid-cols-12 px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px]">
+          <div className="flex flex-col col-span-12 lg:col-span-3 py-2">
             <img
               src={BITSiberLogo}
               alt="BIS Logo"
@@ -40,7 +40,7 @@ const FooterComponent = () => {
             </p>
             <div className="h-[4px] w-[75px] bg-white mt-[14px]" />
           </div>
-          <div className="flex flex-1 flex-col gap-[25px] lg:pl-[50px]">
+          <div className="flex flex-1 flex-col gap-[25px] lg:pl-[50px] col-span-12 sm:col-span-6 lg:col-span-5 py-2">
             <div className="flex flex-col gap-[29px]">
               <div>
                 <p className="font-[400] text-white text-[16px] leading-[30px] ">
@@ -70,47 +70,47 @@ const FooterComponent = () => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-y-[33px] w-[324px] lg:pl-[40px] gap-[88px]">
+          <div className="grid grid-cols-2 gap-y-0 sm:pl-[40px] justify-between col-span-12 sm:col-span-6 lg:col-span-4 py-2">
             <a
               href="#"
-              className="text-white text-[18px] leading-[25px] font-[600] text-nowrap"
+              className="text-white flex flex-1 text-clamp-16 h-fit font-[600] text-nowrap"
             >
               Home
             </a>
             <a
               href="#"
-              className="text-white text-[18px] leading-[25px] font-[600] text-nowrap"
+              className="text-white flex flex-1 text-clamp-16 h-fit font-[600] text-nowrap"
             >
               Service
             </a>
             <a
               href="#"
-              className="text-white text-[18px] leading-[25px] font-[600] text-nowrap"
+              className="text-white flex flex-1 text-clamp-16 h-fit font-[600] text-nowrap"
             >
               About Us
             </a>
             <a
               href="#"
-              className="text-white text-[18px] leading-[25px] font-[600] text-nowrap"
+              className="text-white flex flex-1 text-clamp-16 h-fit font-[600] text-nowrap"
             >
               Privacy Policy
             </a>
             <a
               href="#"
-              className="text-white text-[18px] leading-[25px] font-[600] text-nowrap"
+              className="text-white flex flex-1 text-clamp-16 h-fit font-[600] text-nowrap"
             >
               Our Product
             </a>
             <a
               href="#"
-              className="text-white text-[18px] leading-[25px] font-[600] text-nowrap"
+              className="text-white flex flex-1 text-clamp-16 h-fit font-[600] text-nowrap"
             >
               Cookies Policy
             </a>
           </div>
         </div>
       </div>
-      <div className="text-center font-[400] text-[14px] leading-[25px] py-4 z-30 bg-[#083690] relative">
+      <div className="text-center font-[400] text-[14px] h-fit py-4 z-30 bg-[#083690] relative">
         <p>Copyright © 2024 | Powered by PT. BIT Informatika Siber</p>
       </div>
     </footer>

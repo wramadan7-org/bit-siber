@@ -4,6 +4,7 @@ import { navbars } from "../../constants/navbar";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { AiOutlineGlobal } from "react-icons/ai";
 import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const NavbarComponent = () => {
   const navigate = useNavigate();
@@ -22,15 +23,16 @@ const NavbarComponent = () => {
   };
 
   return (
-    <section className="grid grid-cols-3 mx-auto content-center px-[171px] py-[20px] max-w-[1879px]">
-      <div className="w-[162px] h-[59px]">
+    <section className="flex flex-row flex-nowrap mx-auto items-center px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] py-[20px] max-w-[1879px] justify-between bg-transparent">
+      {/* backdrop-blur-sm bg-[#cecece80] */}
+      <div className="w-[162px] h-[59px] relative">
         <img
           src={LogoBitSiber}
           alt="logo-bit-siber"
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="flex flex-row flex-nowrap gap-[40px]">
+      <div className="hidden flex-1 flex-row items-center justify-center gap-[40px] lg:flex w-full">
         {!!navbars?.length &&
           navbars?.map((itemParent, indexParent) => (
             <div key={indexParent}>
@@ -82,7 +84,7 @@ const NavbarComponent = () => {
       <div className="flex flex-row items-center justify-end">
         <button
           type="button"
-          className="flex flex-row gap-2 justify-center items-center outline-none border-none"
+          className="hidden flex-row gap-2 justify-center items-center outline-none border-none lg:flex"
         >
           <AiOutlineGlobal className="w-[24px] h-[24px] text-[#ffffff]" />
 
@@ -92,6 +94,12 @@ const NavbarComponent = () => {
             </span>
             <MdKeyboardArrowDown className="w-[24px] h-[24px] text-[#ffffff]" />
           </div>
+        </button>
+        <button
+          type="button"
+          className="flex flex-row gap-2 justify-center items-center outline-none border-none lg:hidden"
+        >
+          <GiHamburgerMenu className="w-[24px] h-[24px] text-[#ffffff]" />
         </button>
       </div>
     </section>

@@ -2,7 +2,6 @@ import NavbarComponent from "../../components/navbar/NavbarComponent";
 import HeaderVideo from "../../assets/videos/Y2meta.app-Smart City Digital City Video-(1080p).mp4";
 import TitleComponent from "../../components/titles/TitleComponent";
 import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md";
-import FirstContentImage from "../../assets/images/need-solution.png";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,14 +10,12 @@ import { Keyboard, Pagination } from "swiper/modules";
 import SmartPatrolSwiperImage from "../../assets/images/smart-patrol-swiper.png";
 import VisitorManagementSwiperImage from "../../assets/images/visitor-management-swiper.png";
 import TicketingSwiperImage from "../../assets/images/ticketing-swiper.png";
-import SecondContentImage from "../../assets/images/smart-patrol.png";
 import SmartPatrolContentImage from "../../assets/images/smart-patrol-content.png";
 import SmartPatrolContentHandImage from "../../assets/images/smart-patrol-documentation-hand.png";
 import SmartPatrolPhone1 from "../../assets/images/smart-patrol-phone-1.png";
 import SmartPatrolPhone2 from "../../assets/images/smart-patrol-phone2.png";
 import ScrollSvg from "../../assets/svgs/scroll.svg";
 import { BiSolidQuoteLeft, BiSolidQuoteRight } from "react-icons/bi";
-import VisitormanagementContentImage from "../../assets/images/visitor-management.png";
 import VisitorManagementSystemImage from "../../assets/images/visitor-management-system-.png";
 import FBL500 from "../../assets/images/FBL500 1.png";
 import FBL520 from "../../assets/images/FBL520 v1 1.png";
@@ -74,18 +71,18 @@ const HomePage = () => {
         <NavbarComponent />
       </section>
 
-      <section className="relative min-h-[686px]">
-        <div className="w-full min-h-[686px] absolute z-10 bg-gray-950 opacity-[0.6]" />
+      <section className="relative h-screen pb-[82px] max-h-[686px] overflow-hidden">
+        {/* <div className="w-full min-h-[686px] absolute z-10 bg-gray-950 opacity-[0.6]" /> */}
 
         <video
           src={HeaderVideo} // Path to your video file
           autoPlay
           loop
           muted
-          className="absolute w-full h-full object-cover object-center"
+          className="absolute w-full h-full object-cover object-center filter brightness-[50%]"
         />
 
-        <div className="absolute flex flex-col gap-5 items-start z-20 max-w-[582px] w-full top-1/2 left-48 -translate-y-1/2">
+        <div className="absolute flex flex-col gap-5 items-start z-20 max-w-[582px] w-full top-1/2 left-0 px-[15px] sm:px-[50px] md:px-0 md:left-40 lg:left-44 xl:left-48 -translate-y-1/2">
           <div>
             <TitleComponent
               title="Provides convenience in every activity and time efficiency"
@@ -93,7 +90,7 @@ const HomePage = () => {
               isCenter={false}
             />
 
-            <span className="font-[400] text-[18px] text-[#ffffff]">
+            <span className="font-[400] text-clamp-16 text-[#ffffff]">
               Provide top quality printed circuit boards that support
               mechanically and electrically connection by conductive pathways.
               From its layout, manufacturing to assembling, we offer you
@@ -114,30 +111,22 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="relative min-h-[552px]">
-        <img
-          src={FirstContentImage}
-          alt="first-content"
-          className="absolute w-full h-full object-cover object-center"
-        />
-
-        <div className="absolute transform -translate-x-1/2 left-1/2 top-1/2 -translate-y-1/2">
-          <div className="flex flex-col justify-center items-center">
-            <span className="font-[800] text-[26px] text-[#ffffff]">
-              Need a solution? We've got you covered.
-            </span>
-            <div className="bg-white mt-[20px] h-[3px] w-[345px]" />
-          </div>
+      <section className="relative h-fit py-32 max-h-[552px] bg-[url('assets/images/need-solution.png')] bg-cover bg-center">
+        <div className="flex flex-col justify-center items-center">
+          <span className="font-[800] text-clamp-26 text-center text-[#ffffff]">
+            Need a solution? We've got you covered.
+          </span>
+          <div className="bg-white mt-[20px] h-[3px] w-full max-w-[205px] md:max-w-[345px]" />
         </div>
       </section>
 
-      <section className="relative grid grid-cols-1 md:grid-cols-2 w-full h-fit min-h-[451px] bg-[#072B72] px-[171px] items-center -mt-1 gap-3">
-        <div className="flex flex-col  items-start justify-center h-full gap-5">
-          <span className="font-[800] text-[32px] text-[#ffffff]">
+      <section className="relative grid grid-cols-2 w-full h-fit min-h-[451px] bg-[#072B72] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] items-center justify-center -mt-1 gap-3 py-20 lg:py-0">
+        <div className="flex flex-col col-span-2 lg:col-span-1 items-center justify-center lg:items-start lg:justify-center h-full gap-5">
+          <span className="font-[800] text-[32px] text-[#ffffff] text-center lg:text-start">
             EXPLORE OUR PRODUCTS
           </span>
 
-          <span className="font-[500] text-[18px] text-[#eeecec]">
+          <span className="font-[500] text-clamp-16 text-[#eeecec] text-center lg:text-start lg:pr-[30px]">
             BIT Siber main product is Security Management System which consists
             of Smart Patrol, Visitor Management and Ticketing.
           </span>
@@ -153,7 +142,7 @@ const HomePage = () => {
             <MdKeyboardArrowRight className="w-[22px] h-[22px] text-[#ffffff]" />
           </button>
         </div>
-        <div className="h-full w-full relative">
+        <div className="h-full w-full relative col-span-2 lg:col-span-1">
           <Swiper
             slidesPerView={2}
             spaceBetween={30}
@@ -161,7 +150,7 @@ const HomePage = () => {
             keyboard={true}
             grabCursor
             modules={[Pagination, Keyboard]}
-            className="smart-patrol-swiper absolute"
+            className="smart-patrol-swiper"
             loop
           >
             <SwiperSlide>
@@ -201,30 +190,26 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="relative flex items-center justify-center w-full min-h-[1117px]">
-        <img
-          src={SecondContentImage}
-          alt="second-content"
-          className="absolute w-full h-full object-cover object-center"
-        />
+      <section className="relative flex flex-row items-center justify-center w-full min-h-[1117px] h-fit bg-[url('assets/images/smart-patrol.png')] py-20 md:py-0 bg-cover bg-center">
+        <div className="flex flex-col md:flex-row gap-20 md:gap-0 items-center px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px]">
+          <div className="flex flex-1">
+            <img
+              src={SmartPatrolContentImage}
+              alt="smart-patrol"
+              className="w-full h-full lg:h-[602px] object-center object-contain"
+            />
+          </div>
 
-        <div className="grid grid-cols-2 items-center absolute top-1/2 transform -translate-y-1/2 gap-16 px-[171px]">
-          <img
-            src={SmartPatrolContentImage}
-            alt="smart-patrol"
-            className="w-[637px] h-[772px] object-center object-contain"
-          />
-
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-1 flex-col gap-3 md:pl-10">
             <TitleComponent title="SMART PATROL" width={121} isCenter={false} />
 
-            <p className="font-[400] text-[18px] text-[#ffffff]">
+            <p className="font-[400] text-clamp-16 text-[#ffffff]">
               Smart Patrol is an innovative app designed to assist organizations
               in the management of attendance, patrols, and other security and
               employee related activities. The app consists of two main
               components: Smart Patrol Mobile and Smart Patrol Website.
             </p>
-            <p className="font-[400] text-[18px] text-[#ffffff]">
+            <p className="font-[400] text-clamp-16 text-[#ffffff]">
               Smart Patrol Mobile allows employees to take attendance, receive
               notifications, manage schedules and attendance history, conduct
               patrols, input guest data, and apply for leave and reimbursement.
@@ -235,7 +220,7 @@ const HomePage = () => {
               user data.
             </p>
 
-            <p className="font-[400] text-[18px] text-[#ffffff]">
+            <p className="font-[400] text-clamp-16 text-[#ffffff]">
               Smart Patrol Website provides comprehensive monitoring and
               reporting features, allowing managers to monitor activities in
               real-time, view patrol data, incidents, guests, etc. in charts and
@@ -246,8 +231,8 @@ const HomePage = () => {
       </section>
 
       <section className="relative flex items-start justify-center w-full min-h-[838px] bg-[#F2F2F2]">
-        <div className="absolute transform top-14 left-1/2 -translate-x-1/2 flex flex-col justify-start items-center w-[396px]  h-[191px] leading-none gap-5 align-bottom">
-          <span className="text-[#043FB3] font-[800] text-[50px] text-center">
+        <div className="absolute transform top-14 left-1/2 -translate-x-1/2 flex flex-col justify-start items-center h-full w-full max-w-[396px]  max-h-[191px] gap-5 align-bottom">
+          <span className="text-[#043FB3] font-[800] text-clamp-50 text-center lg:leading-[60px]">
             Documentation Smart Patrol
           </span>
           <button
@@ -260,7 +245,7 @@ const HomePage = () => {
             <MdKeyboardArrowRight className="w-[22px] h-[22px] text-[#072B72]" />
           </button>
         </div>
-        <div className="px-[171px] w-full flex flex-row gap-2 relative">
+        <div className="px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] w-full flex flex-row gap-2 relative">
           <div className="relative flex flex-1">
             <div className="absolute bottom-0 left-0 w-full">
               <img
@@ -277,7 +262,7 @@ const HomePage = () => {
               className="w-[38.5px] h-[36.67px]"
             />
 
-            <span className="font-[700] text-[18px] text-[#072B72]">
+            <span className="font-[700] text-clamp-16 text-[#072B72]">
               Scroll up & down
             </span>
           </div>
@@ -300,11 +285,11 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="relative flex items-center justify-center w-full min-h-[1025px] bg-[#F6F6F6]">
-        <div className="relative flex flex-row items-center">
-          <div className="bg-[#D7E4FC] h-screen max-h-[586px] rounded-[10px] w-full max-w-[597px] px-[26px] py-10 flex flex-col gap-16">
+      <section className="relative flex items-center justify-center w-full min-h-[1025px] bg-[#F6F6F6] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] py-20 md:py-0">
+        <div className="relative flex flex-col md:flex-row items-center">
+          <div className="bg-[#D7E4FC] h-full md:h-screen md:max-h-[586px] rounded-[10px] w-full max-w-[597px] px-[26px] py-20 md:py-10 flex flex-col gap-16">
             <div className="text-[#072B72] text-center flex flex-col items-center justify-center gap-5">
-              <span className="text-[36px] font-[700] leading-tight ">
+              <span className="text-clamp-36 font-[700]  ">
                 The benefits of <br /> Smart Patrol
               </span>
               <div className="w-full h-[7px] px-[40%]">
@@ -314,7 +299,7 @@ const HomePage = () => {
             <div className="relative">
               <BiSolidQuoteLeft className="text-[#1C49A0] text-[32px] absolute -top-10 left-0" />
               <BiSolidQuoteRight className="text-[#1C49A0] text-[32px] absolute -bottom-10 right-0" />
-              <span className="text-[#3F68B3] text-[18px] font-[700]">
+              <span className="text-[#3F68B3] text-clamp-16 font-[700]">
                 Defining Smart Patrol is very broad, including improving the
                 efficiency of managing attendance, leave, patrol and guest data
                 centrally, and facilitating real-time and structured monitoring
@@ -325,10 +310,10 @@ const HomePage = () => {
               </span>
             </div>
           </div>
-          <div className="bg-[#BACEF4] h-screen max-h-[638px] rounded-[10px] w-full max-w-[597px] px-[36px] py-16 flex flex-col gap-16 z-10 -ml-1">
+          <div className="bg-[#BACEF4] h-full md:h-screen md:max-h-[638px] rounded-[10px] w-full max-w-[597px] px-[36px] py-16 flex flex-col gap-16 z-10 ml-0 -mt-5 md:mt-0 md:-ml-1">
             <div className="text-[#072B72] text-center flex flex-col items-center justify-center gap-5">
-              <span className="text-[36px] font-[700] leading-tight ">
-                The benefits of <br /> Smart Patrol
+              <span className="text-clamp-36 font-[700]  ">
+                Usefulness of <br /> Smart Patrol
               </span>
               <div className="w-full h-[7px] px-[40%]">
                 <div className="w-full h-full bg-[#072B72]" />
@@ -337,7 +322,7 @@ const HomePage = () => {
             <div className="relative">
               <BiSolidQuoteLeft className="text-[#0A214F] text-[32px] absolute -top-10 left-0" />
               <BiSolidQuoteRight className="text-[#0A214F] text-[32px] absolute -bottom-10 right-0" />
-              <span className="text-[#0A214F] text-[18px] font-[700]">
+              <span className="text-[#0A214F] text-clamp-16 font-[700]">
                 Smart Patrol supports clocking in, clocking out and overtime,
                 conducting online and offline patrols with photo documentation,
                 and managing important notifications such as SOS and
@@ -351,22 +336,16 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="relative h-fit w-full items-center flex justify-center">
-        <img
-          src={VisitormanagementContentImage}
-          className="h-full w-full object-cover object-center"
-          alt="visitor-management-system"
-        />
-
-        <div className="grid grid-cols-2 items-center absolute top-1/2 transform -translate-y-1/2 gap-16 px-[171px]">
-          <div className="flex flex-col gap-3">
+      <section className="relative h-fit w-full items-center flex justify-center bg-[url('assets/images/visitor-management.png')] bg-cover bg-center md:min-h-[1173px] py-20 md:py-0">
+        <div className="flex flex-col-reverse md:flex-row items-center gap-20 md:gap-0 px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px]">
+          <div className="flex flex-1 flex-col gap-3">
             <TitleComponent
               title="Visitor Management System"
               width={121}
               isCenter={false}
             />
 
-            <p className="font-[400] text-[18px] text-[#ffffff]">
+            <p className="font-[400] text-clamp-16 text-[#ffffff] lg:leading-[25px]">
               A flap barrier gate is a type of pedestrian access control
               mechanism commonly used in areas where there is a need to restrict
               or control the flow of people. These gates typically consist of a
@@ -374,7 +353,7 @@ const HomePage = () => {
               allow authorized individuals to pass through and then close to
               prevent unauthorized access.
             </p>
-            <p className="font-[400] text-[18px] text-[#ffffff]">
+            <p className="font-[400] text-clamp-16 text-[#ffffff] lg:leading-[25px]">
               Flap barrier gates are commonly used in places like office
               buildings, train stations, airports, stadiums, and other public
               venues where there is a need to regulate the movement of people.
@@ -383,7 +362,7 @@ const HomePage = () => {
               ensure that only authorized individuals are able to pass through.
             </p>
 
-            <p className="font-[400] text-[18px] text-[#ffffff]">
+            <p className="font-[400] text-clamp-16 text-[#ffffff] lg:leading-[25px]">
               These gates offer a more secure and controlled access solution
               compared to simple turnstiles or gates, as the flaps physically
               block access and can only be opened for one person at a time. This
@@ -395,20 +374,20 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="h-[605px]">
+          <div className="h-fit w-full max-w-[637px] md:h-[470px] flex flex-1 pl-0 md:pl-10">
             <img
               src={VisitorManagementSystemImage}
               alt="smart-patrol"
-              className="w-[637px] h-[772px] object-center object-contain"
+              className="w-full h-full object-center object-contain"
             />
           </div>
         </div>
       </section>
 
-      <section className="min-h-[822px] bg-[#F2F2F2] flex flex-col px-[171px]">
+      <section className="min-h-[822px] bg-[#F2F2F2] flex flex-col px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px]">
         <div className="pt-[57px] flex flex-col gap-10">
           <div className="flex flex-col items-center justify-center gap-5">
-            <span className="text-[#043FB3] font-[800] text-[50px] text-center">
+            <span className="text-[#043FB3] font-[800] lg:leading-[60px] text-clamp-50 text-center">
               Documentation Visiting
               <br /> Management System
             </span>
@@ -422,11 +401,11 @@ const HomePage = () => {
               <MdKeyboardArrowRight className="w-[22px] h-[22px] text-[#072B72]" />
             </button>
           </div>
-          <div className="flex flex-row justify-evenly gap-[57px] h-full py-5 overflow-x-scroll max-w-[1.062.81px] px-[134.19px] hide-scrollbar">
-            <div className="min-h-[415.11px] max-h-[415.11px] w-fit h-full border-[4px] border-[#EAE6E6] relative bg-[#EAE6E6] rounded-[20px] flex items-center justify-center p-[40px]">
+          <div className="flex flex-col md:flex-row items-center md:items-start md:justify-evenly gap-[57px] h-full py-5 overflow-y-scroll overflow-x-hidden md:overflow-x-scroll max-w-[1.062.81px] px-[134.19px] hide-scrollbar">
+            <div className="min-h-[415.11px] max-h-[415.11px] min-w-[280px] w-fit h-full border-[4px] border-[#EAE6E6] relative bg-[#EAE6E6] rounded-[20px] flex items-center justify-center p-[40px]">
               {/* <div className="w-[330.39] h-[342.04] flex items-center justify-center"> */}
-              <div className="px-[24px] py-[10px] bg-[#072B72] absolute top-2/3 right-[98%] text-center rounded-[5px]">
-                <span className="font-[700] text-[26px] text-[#ffffff]">
+              <div className="px-[24px] py-[10px] bg-[#072B72] absolute md:top-2/3 md:right-[95%] top-3/4 right-0  text-center rounded-[5px]">
+                <span className="font-[700] text-clamp-26 text-[#ffffff]">
                   FBL500
                 </span>
               </div>
@@ -437,11 +416,11 @@ const HomePage = () => {
               />
               {/* </div> */}
             </div>
-            <div className="h-screen max-h-[368px] my-auto border-dashed border border-[#A3A3A3]" />
-            <div className="min-h-[415.11px] max-h-[415.11px] w-fit h-full border-[4px] border-[#EAE6E6] relative bg-[#EAE6E6] rounded-[20px] flex items-center justify-center p-[40px]">
+            <div className="h-[1px] w-screen max-w-[300px] md:max-w-0 md:w-0 md:h-screen max-h-[368px] my-auto border-dashed border border-[#A3A3A3]" />
+            <div className="min-h-[415.11px] max-h-[415.11px] min-w-[280px] w-fit h-full border-[4px] border-[#EAE6E6] relative bg-[#EAE6E6] rounded-[20px] flex items-center justify-center p-[40px]">
               {/* <div className="w-[330.39] h-[342.04] flex items-center justify-center"> */}
-              <div className="px-[24px] py-[10px] bg-[#072B72] absolute top-1/2 left-[98%] text-center rounded-[5px]">
-                <span className="font-[700] text-[26px] text-[#ffffff]">
+              <div className="px-[24px] py-[10px] bg-[#072B72] absolute md:top-1/2 md:left-[95%] top-3/4 left-0 text-center rounded-[5px]">
+                <span className="font-[700] text-clamp-26 text-[#ffffff]">
                   FBL520
                 </span>
               </div>
@@ -456,12 +435,11 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="flex flex-row flex-wrap min-h-[1021px] h-fit bg-[#F6F6F6] px-[171px] py-[100px]">
+      <section className="flex flex-col lg:flex-row min-h-[1021px] h-fit bg-[#F6F6F6] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] py-[100px] gap-10 lg:gap-0">
         <div className="flex flex-col flex-1 items-center justify-center">
-          <div className="gap-y-[20px] flex flex-col leading-10">
-            <span className="text-[#072B72] font-[600] text-[36px] ">
-              Feature Visiting
-              <br /> Management
+          <div className="gap-y-[20px] flex flex-col items-center lg:items-start justify-center lg:justify-start text-center lg:text-start leading-none lg:leading-[50px]">
+            <span className="text-[#072B72] font-[600] text-clamp-45 ">
+              Feature Visiting Management
               <br /> System
             </span>
 
@@ -469,68 +447,68 @@ const HomePage = () => {
           </div>
         </div>
         <div className="flex flex-1 flex-col gap-y-[20px] items-start justify-center relative">
-          <div className="absolute -left-5 h-full border-[3px] border-[#0D43AC] rounded-sm" />
-          <div className="absolute -left-[23.2px] w-[12px] h-[12px] border-[3px] border-[#0D43AC] rounded-full top-10 z-20 bg-white" />
-          <div className="absolute -left-[23.2px] w-[12px] h-[12px] border-[3px] border-[#0D43AC] rounded-full bottom-10 z-20 bg-white" />
-          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+          <div className="absolute left-0 lg:-left-8 h-full border-[3px] border-[#0D43AC] rounded-sm" />
+          <div className="absolute -left-1 lg:-left-[35.2px] w-[12px] h-[12px] border-[3px] border-[#0D43AC] rounded-full top-10 z-20 bg-white" />
+          <div className="absolute -left-1 lg:-left-[35.2px] w-[12px] h-[12px] border-[3px] border-[#0D43AC] rounded-full bottom-10 z-20 bg-white" />
+          <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
             <span className="text-[#072B72] font-[500] text-[16px]">
               Person information structure: based on Face Unique Biometric ID
             </span>
           </div>
-          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+          <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
             <span className="text-[#072B72] font-[500] text-[16px]">
               Supports 4 attendance status, including check in and check out
               (overtime in and overtime out are done by software)
             </span>
           </div>
-          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+          <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
             <span className="text-[#072B72] font-[500] text-[16px]">
               Supports multiple languages: English, Indonesian, Vietnamese,
               Thais, Philippines, Bahasa Melayu
             </span>
           </div>
-          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+          <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
             <span className="text-[#072B72] font-[500] text-[16px]">
               Configurable with local private cloud or on-premise Authentication
               server
             </span>
           </div>
-          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+          <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
             <span className="text-[#072B72] font-[500] text-[16px]">
               7-inch LCD screen to display time, date, week, and attendance
               information Max
             </span>
           </div>
-          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+          <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
             <span className="text-[#072B72] font-[500] text-[16px]">
               Unlimited users as no data stored in the device and Max. 100,000
               events records
             </span>
           </div>
-          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+          <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
             <span className="text-[#072B72] font-[500] text-[16px]">
               Two attendance authentication modes: authentication by person,
               authentication by device
             </span>
           </div>
-          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+          <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
             <span className="text-[#072B72] font-[500] text-[16px]">
               Generates the attendance report automatically and views the
               attendance data easily
             </span>
           </div>
-          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+          <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
             <span className="text-[#072B72] font-[500] text-[16px]">
               Can be integrated with 3rd Party appliance, such as Gates,
               Turnstile, Door and etc.
             </span>
           </div>
-          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+          <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
             <span className="text-[#072B72] font-[500] text-[16px]">
               IP address conflict detection
             </span>
           </div>
-          <div className="px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
+          <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
             <span className="text-[#072B72] font-[500] text-[16px]">
               Works properly with Lithium battery when powering off
             </span>
@@ -538,22 +516,16 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="relative h-fit w-full max-h-[1000px] items-center flex justify-center overflow-hidden">
-        <img
-          src={VisitormanagementContentImage}
-          className="h-full w-full object-cover object-center"
-          alt="visitor-management-system"
-        />
-
-        <div className="grid grid-cols-2 items-center absolute top-1/2 transform -translate-y-1/2 gap-16 px-[171px]">
-          <div className="flex flex-col gap-3">
+      <section className="relative h-fit w-full items-center flex justify-center overflow-hidden bg-[url('assets/images/visitor-management.png')] bg-cover bg-center">
+        <div className="flex flex-col-reverse md:flex-row items-center py-20 gap-16 px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px]">
+          <div className="flex flex-1 flex-col gap-3">
             <TitleComponent
               title="TICKETING MANAGAMENT SYSTEM"
               width={121}
               isCenter={false}
             />
 
-            <p className="font-[400] text-[18px] text-[#ffffff]">
+            <p className="font-[400] text-clamp-16 leading text-[#ffffff]">
               The app converts facial feature data into a secure SQRC format,
               enabling reliable ID authentication without the need for internet
               connectivity or additional devices. With key features such as
@@ -565,7 +537,7 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="w-full max-w-[768.31px]">
+          <div className="w-full flex flex-1 max-w-[768.31px]">
             <img
               src={TicketingManagementSystem}
               alt="ticketing-management-system"
@@ -575,9 +547,9 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="flex flex-col w-full h-full max-h-[846px] bg-[#F2F2F2] px-[171px] items-center justify-start pt-[87.5px] gap-[62px]">
+      <section className="flex flex-col w-full h-full max-h-[846px] bg-[#F2F2F2] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] items-center justify-start pt-[87.5px] gap-[62px]">
         <div className="flex flex-col items-center justify-start gap-6">
-          <span className="font-[800] text-[50px] text-[#043FB3] text-center leading-[63px]">
+          <span className="font-[800] text-clamp-50 lg:leading-[60px] text-[#043FB3] text-center ">
             Documentation Ticketing <br /> Management System
           </span>
           <button
@@ -621,17 +593,17 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="flex flex-col w-full h-full max-h-[1067px] max-w-[1879px] bg-[#F6F6F6] py-[100px] px-[171px] gap-[120px] ">
-        <div className="grid grid-cols-12">
-          <div className="col-span-4">
+      <section className="flex flex-col w-full h-fit max-w-[1879px] bg-[#F6F6F6] py-[100px] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] gap-16 lg:gap-[120px] ">
+        <div className="grid grid-cols-12 md:gap-10">
+          <div className="col-span-12 lg:col-span-4 py-5 flex items-center justify-start">
             <div className="flex flex-col gap-5">
-              <span className="font-[600] text-[36px] text-[#072B72] leading-[45.36px] ">
+              <span className="font-[600] text-clamp-36 text-[#072B72]  ">
                 Benefits of Concert <br /> Ticketing App
               </span>
               <div className="h-[9px] w-[94px] bg-[#072B72] " />
             </div>
           </div>
-          <div className="col-span-8 flex flex-row items-center justify-start gap-[24px]">
+          <div className="col-span-12 lg:col-span-8 flex flex-row items-center justify-start gap-[24px] overflow-x-scroll py-5">
             {benefitCards?.map(
               (
                 item: { title: string; description: string; image: string },
@@ -639,7 +611,7 @@ const HomePage = () => {
               ) => (
                 <div
                   key={index}
-                  className="bg-[#FBFBFB] w-full max-w-[316px] h-full rounded-[5px] flex flex-col overflow-hidden"
+                  className="bg-[#FBFBFB] w-full min-w-[296px] max-w-[316px] h-full rounded-[5px] flex flex-col overflow-hidden"
                 >
                   <div className="h-[115px] w-full">
                     <img
@@ -649,10 +621,10 @@ const HomePage = () => {
                     />
                   </div>
                   <div className="pt-5 pb-8 px-2 flex flex-col gap-[15px]">
-                    <span className="font-[600] text-[#072B72] text-[24px] leading-[30.24px] ">
+                    <span className="font-[600] text-[#072B72] text-[24px]  ">
                       {item.title}
                     </span>
-                    <span className="font-[400] text-[#90A3C9] text-[16px] leading-[20.16px] ">
+                    <span className="font-[400] text-[#90A3C9] text-[16px]  ">
                       {item.description}
                     </span>
                   </div>
@@ -661,16 +633,16 @@ const HomePage = () => {
             )}
           </div>
         </div>
-        <div className="grid grid-cols-12">
-          <div className="col-span-4">
+        <div className="grid grid-cols-12 md:gap-10">
+          <div className="col-span-12 lg:col-span-4 py-5 flex items-center justify-start">
             <div className="flex flex-col gap-5">
-              <span className="font-[600] text-[36px] text-[#072B72] leading-[45.36px] ">
+              <span className="font-[600] text-clamp-36 text-[#072B72]  ">
                 Usability of Concert <br /> Ticketing Application
               </span>
               <div className="h-[9px] w-[94px] bg-[#072B72] " />
             </div>
           </div>
-          <div className="col-span-8 flex flex-row items-center justify-start gap-[24px]">
+          <div className="col-span-12 lg:col-span-8 flex flex-row items-center justify-start gap-[24px] overflow-x-scroll py-5">
             {usabilityCards?.map(
               (
                 item: { title: string; description: string; image: string },
@@ -678,7 +650,7 @@ const HomePage = () => {
               ) => (
                 <div
                   key={index}
-                  className="bg-[#FBFBFB] w-full max-w-[316px] h-full rounded-[5px] flex flex-col overflow-hidden"
+                  className="bg-[#FBFBFB] w-full min-w-[296px] max-w-[316px] h-full rounded-[5px] flex flex-col overflow-hidden"
                 >
                   <div className="h-[115px] w-full">
                     <img
@@ -688,10 +660,10 @@ const HomePage = () => {
                     />
                   </div>
                   <div className="pt-5 pb-8 px-2 flex flex-col gap-[15px]">
-                    <span className="font-[600] text-[#072B72] text-[24px] leading-[30.24px] ">
+                    <span className="font-[600] text-[#072B72] text-[24px]  ">
                       {item.title}
                     </span>
-                    <span className="font-[400] text-[#90A3C9] text-[16px] leading-[20.16px] ">
+                    <span className="font-[400] text-[#90A3C9] text-[16px]  ">
                       {item.description}
                     </span>
                   </div>

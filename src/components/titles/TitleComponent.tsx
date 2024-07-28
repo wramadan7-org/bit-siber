@@ -16,7 +16,7 @@ const TitleComponent: FC<InterfaceTitlePorps> = ({
       className={`flex flex-col ${isCenter ? "justify-center" : "justify-start"}`}
     >
       <div className="block">
-        <span className="font-[800] leading-none text-[45px] text-[#ffffff]">
+        <span className="font-[800] lg:leading-[60px] text-clamp-45 text-[#ffffff]">
           {title}
         </span>
 
