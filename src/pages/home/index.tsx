@@ -1,5 +1,5 @@
 import NavbarComponent from "../../components/navbar/NavbarComponent";
-import HeaderVideo from "../../assets/videos/Y2meta.app-Smart City Digital City Video-(1080p).mp4";
+import HeaderVideo from "../../assets/videos/header-video.mp4";
 import TitleComponent from "../../components/titles/TitleComponent";
 import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
@@ -29,6 +29,7 @@ import {
   IoMdArrowDropleftCircle,
   IoMdArrowDroprightCircle,
 } from "react-icons/io";
+import "swiper/css/effect-coverflow";
 
 const HomePage = () => {
   document.title = "BIT Siber";
@@ -71,12 +72,12 @@ const HomePage = () => {
   }, [updatesSlideRotation]);
 
   return (
-    <section className="mx-auto overflow-x-hidden">
-      <section className="sticky top-0 bg-transparent z-30 h-0">
+    <section className="mx-auto ">
+      <section className="sticky top-0 bg-transparent z-50">
         <NavbarComponent />
       </section>
 
-      <section className="relative h-screen pb-[82px] max-h-[686px] overflow-hidden">
+      <section className="relative h-screen pb-[82px] max-h-[600px] sm:max-h-[686px] overflow-hidden">
         {/* <div className="w-full min-h-[686px] absolute z-10 bg-gray-950 opacity-[0.6]" /> */}
 
         <video
@@ -116,12 +117,12 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="relative h-fit py-32 max-h-[552px] bg-[url('assets/images/need-solution.png')] bg-cover bg-center">
+      <section className="relative h-fit py-32 max-h-[552px] bg-[url('assets/images/need-solution.png')] bg-cover bg-center px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px]">
         <div className="flex flex-col justify-center items-center">
           <span className="font-[800] text-clamp-26 text-center text-[#ffffff]">
             Need a solution? We've got you covered.
           </span>
-          <div className="bg-white mt-[20px] h-[3px] w-full max-w-[205px] md:max-w-[345px]" />
+          <div className="bg-white mt-[20px] h-[3px] w-full max-w-[105px]  md:max-w-[245px]" />
         </div>
       </section>
 
@@ -158,8 +159,8 @@ const HomePage = () => {
             centeredSlides
             modules={[Pagination, Keyboard, Navigation]}
             navigation={{
-              nextEl: ".custom-next",
-              prevEl: ".custom-prev",
+              nextEl: ".custom-next-smart-patrol",
+              prevEl: ".custom-prev-smart-patrol",
             }}
             className="z-20"
             breakpoints={{
@@ -255,11 +256,11 @@ const HomePage = () => {
               </span>
             </SwiperSlide> */}
           </Swiper>
-          <div className="custom-navigation flex flex-row justify-between absolute -left-4 -right-4 sm:-left-10 sm:-right-10 md:-left-12 md:-right-12 top-1/2 h-10">
-            <div className="custom-prev cursor-pointer z-20">
+          <div className="custom-navigation-ticketing flex flex-row justify-between absolute -left-4 -right-4 sm:-left-10 sm:-right-10 md:-left-12 md:-right-12 top-1/2 h-10">
+            <div className="custom-prev-smart-patrol cursor-pointer z-20">
               <IoMdArrowDropleftCircle className="w-10 h-10 z-20 text-[#0569d3] sm:text-white" />
             </div>
-            <div className="custom-next cursor-pointer z-20">
+            <div className="custom-next-smart-patrol cursor-pointer z-20">
               <IoMdArrowDroprightCircle className="w-10 h-10 z-20 text-[#0569d3] sm:text-white" />
             </div>
           </div>
@@ -340,7 +341,7 @@ const HomePage = () => {
               Scroll up & down
             </span>
           </div>
-          <div className="flex flex-col overflow-y-scroll overflow-x-hidden w-[366px] h-[838px] relative hide-scrollbar">
+          <div className="flex flex-col overflow-y-scroll overflow-x-hidden w-[366px] h-[838px] relative hide-scrollbar documentation-smart-patrol-list">
             <div className="w-full h-[736px] transform md:scale-[1.1] flex items-center justify-center">
               <img
                 src={SmartPatrolPhone1}
@@ -522,68 +523,68 @@ const HomePage = () => {
         </div>
         <div className="flex flex-1 flex-col gap-y-[20px] items-start justify-center relative">
           <div className="absolute left-0 lg:-left-8 h-full border-[3px] border-[#0D43AC] rounded-sm" />
-          <div className="absolute -left-1 lg:-left-[35.2px] w-[12px] h-[12px] border-[3px] border-[#0D43AC] rounded-full top-10 z-20 bg-white" />
-          <div className="absolute -left-1 lg:-left-[35.2px] w-[12px] h-[12px] border-[3px] border-[#0D43AC] rounded-full bottom-10 z-20 bg-white" />
+          <div className="absolute -left-[3px] lg:-left-[35.2px] w-[12px] h-[12px] border-[3px] border-[#0D43AC] rounded-full top-10 z-20 bg-white" />
+          <div className="absolute -left-[3px] lg:-left-[35.2px] w-[12px] h-[12px] border-[3px] border-[#0D43AC] rounded-full bottom-10 z-20 bg-white" />
           <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
-            <span className="text-[#072B72] font-[500] text-[16px]">
+            <span className="text-[#072B72] font-[500] text-clamp-16">
               Person information structure: based on Face Unique Biometric ID
             </span>
           </div>
           <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
-            <span className="text-[#072B72] font-[500] text-[16px]">
+            <span className="text-[#072B72] font-[500] text-clamp-16">
               Supports 4 attendance status, including check in and check out
               (overtime in and overtime out are done by software)
             </span>
           </div>
           <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
-            <span className="text-[#072B72] font-[500] text-[16px]">
+            <span className="text-[#072B72] font-[500] text-clamp-16">
               Supports multiple languages: English, Indonesian, Vietnamese,
               Thais, Philippines, Bahasa Melayu
             </span>
           </div>
           <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
-            <span className="text-[#072B72] font-[500] text-[16px]">
+            <span className="text-[#072B72] font-[500] text-clamp-16">
               Configurable with local private cloud or on-premise Authentication
               server
             </span>
           </div>
           <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
-            <span className="text-[#072B72] font-[500] text-[16px]">
+            <span className="text-[#072B72] font-[500] text-clamp-16">
               7-inch LCD screen to display time, date, week, and attendance
               information Max
             </span>
           </div>
           <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
-            <span className="text-[#072B72] font-[500] text-[16px]">
+            <span className="text-[#072B72] font-[500] text-clamp-16">
               Unlimited users as no data stored in the device and Max. 100,000
               events records
             </span>
           </div>
           <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
-            <span className="text-[#072B72] font-[500] text-[16px]">
+            <span className="text-[#072B72] font-[500] text-clamp-16">
               Two attendance authentication modes: authentication by person,
               authentication by device
             </span>
           </div>
           <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
-            <span className="text-[#072B72] font-[500] text-[16px]">
+            <span className="text-[#072B72] font-[500] text-clamp-16">
               Generates the attendance report automatically and views the
               attendance data easily
             </span>
           </div>
           <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
-            <span className="text-[#072B72] font-[500] text-[16px]">
+            <span className="text-[#072B72] font-[500] text-clamp-16">
               Can be integrated with 3rd Party appliance, such as Gates,
               Turnstile, Door and etc.
             </span>
           </div>
           <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
-            <span className="text-[#072B72] font-[500] text-[16px]">
+            <span className="text-[#072B72] font-[500] text-clamp-16">
               IP address conflict detection
             </span>
           </div>
           <div className="ml-5 lg:ml-0 px-[16px] py-[20px] border border-[#072B72] rounded-[5px]">
-            <span className="text-[#072B72] font-[500] text-[16px]">
+            <span className="text-[#072B72] font-[500] text-clamp-16">
               Works properly with Lithium battery when powering off
             </span>
           </div>
@@ -657,7 +658,7 @@ const HomePage = () => {
               (item: { image: string }, index: number) => (
                 <SwiperSlide
                   key={index}
-                  className="max-w-[226px] min-w-[226px] min-h-[484px] border-[5px]"
+                  className="max-w-[226px] min-w-[226px] min-h-[484px]"
                 >
                   <img src={item?.image} alt={`ticketing-${index + 1}`} />
                 </SwiperSlide>
@@ -671,7 +672,7 @@ const HomePage = () => {
         <div className="grid grid-cols-12 md:gap-10">
           <div className="col-span-12 lg:col-span-4 py-5 flex items-center justify-start">
             <div className="flex flex-col gap-5">
-              <span className="font-[600] text-clamp-36 text-[#072B72]  ">
+              <span className="font-[600] text-clamp-36 text-[#072B72]  leading-[50px]">
                 Benefits of Concert <br /> Ticketing App
               </span>
               <div className="h-[9px] w-[94px] bg-[#072B72] " />
@@ -710,7 +711,7 @@ const HomePage = () => {
         <div className="grid grid-cols-12 md:gap-10">
           <div className="col-span-12 lg:col-span-4 py-5 flex items-center justify-start">
             <div className="flex flex-col gap-5">
-              <span className="font-[600] text-clamp-36 text-[#072B72]  ">
+              <span className="font-[600] text-clamp-36 text-[#072B72]  leading-[50px]">
                 Usability of Concert <br /> Ticketing Application
               </span>
               <div className="h-[9px] w-[94px] bg-[#072B72] " />

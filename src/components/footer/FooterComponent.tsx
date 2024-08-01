@@ -43,7 +43,7 @@ const FooterComponent = () => {
           <div className="flex flex-1 flex-col gap-[25px] lg:pl-[50px] col-span-12 sm:col-span-6 lg:col-span-5 py-2">
             <div className="flex flex-col gap-[29px]">
               <div>
-                <p className="font-[400] text-white text-[16px] leading-[30px] ">
+                <p className="font-[400] text-white text-[16px] leading-[25px] ">
                   Ruko Boulevard Tekno Blok F No.8, Desa/Kelurahan Setu, Kec.
                   Setu, Kota Tangerang Selatan, Provinsi Banten, 15314.
                   INDONESIA
