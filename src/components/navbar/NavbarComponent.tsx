@@ -1,29 +1,39 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import LogoBitSiber from "../../assets/images/logo-bit-siber.png";
 import { navbars } from "../../constants/navbar";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { AiOutlineGlobal } from "react-icons/ai";
-import { useState } from "react";
+import {
+  FC,
+  // useState
+} from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import "../../App.css";
 
-const NavbarComponent = () => {
-  const navigate = useNavigate();
-  const [dropdownActiveState, setDropdownActiveState] = useState<string | null>(
-    null,
-  );
+interface InterfaceNavbarProps {
+  isScrolled?: boolean;
+}
 
-  const handleChangePage = (pathParam: string) => {
-    navigate(pathParam);
-  };
+const NavbarComponent: FC<InterfaceNavbarProps> = ({ isScrolled }) => {
+  // const navigate = useNavigate();
+  // const [dropdownActiveState, setDropdownActiveState] = useState<string | null>(
+  //   null,
+  // );
 
-  const handleShowDropdown = (dropdownActiveParam: string | null) => {
-    setDropdownActiveState((prevState) =>
-      prevState === dropdownActiveParam ? null : dropdownActiveParam,
-    );
-  };
+  // const handleChangePage = (pathParam: string) => {
+  //   navigate(pathParam);
+  // };
+
+  // const handleShowDropdown = (dropdownActiveParam: string | null) => {
+  //   setDropdownActiveState((prevState) =>
+  //     prevState === dropdownActiveParam ? null : dropdownActiveParam,
+  //   );
+  // };
 
   return (
-    <section className="flex flex-row flex-nowrap mx-auto items-center px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] py-[20px] max-w-[1879px] justify-between bg-transparent">
+    <section
+      className={`navbar flex flex-row flex-nowrap mx-auto items-center px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] py-[20px] max-w-[1879px] justify-between bg-transparent ${isScrolled ? "scrolled-navbar" : ""}`}
+    >
       {/* backdrop-blur-sm bg-[#cecece80] */}
       <div className="w-[162px] h-[59px] relative">
         <img
@@ -39,7 +49,7 @@ const NavbarComponent = () => {
               {!!itemParent?.children?.length && (
                 <div
                   className="w-full h-full flex flex-col items-center justify-center relative"
-                  onClick={() => handleShowDropdown(itemParent?.label)}
+                  // onClick={() => handleShowDropdown(itemParent?.label)}
                 >
                   <div className="flex flex-row gap-2 items-center hover:cursor-pointer">
                     <span className="text-center uppercase font-[800] text-[14px] text-[#ffffff]">
@@ -48,7 +58,7 @@ const NavbarComponent = () => {
 
                     <MdKeyboardArrowDown className="w-[24px] h-[24px] text-[#ffffff]" />
                   </div>
-                  {dropdownActiveState === itemParent?.label && (
+                  {/* {dropdownActiveState === itemParent?.label && (
                     <div className="absolute top-[70%] flex flex-col w-fit h-fit bg-white text-black rounded-sm">
                       {itemParent?.children?.map(
                         (itemChildren, indexChildren) => (
@@ -64,14 +74,14 @@ const NavbarComponent = () => {
                         ),
                       )}
                     </div>
-                  )}
+                  )} */}
                 </div>
               )}
               {!itemParent?.children?.length && (
                 <button
                   type="button"
                   className="w-full h-full border-none outline-none"
-                  onClick={() => handleChangePage(itemParent?.path)}
+                  // onClick={() => handleChangePage(itemParent?.path)}
                 >
                   <span className="text-center m-auto font-[300] text-[14px] text-[#d8d8d8]">
                     {itemParent?.label?.toUpperCase()}

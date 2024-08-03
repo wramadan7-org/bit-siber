@@ -43,17 +43,17 @@ const FooterComponent = () => {
           <div className="flex flex-1 flex-col gap-[25px] lg:pl-[50px] col-span-12 sm:col-span-6 lg:col-span-5 py-2">
             <div className="flex flex-col gap-[29px]">
               <div>
-                <p className="font-[400] text-white text-[16px] leading-[25px] ">
+                <p className="font-[400] text-white text-clamp-16 leading-[25px] ">
                   Ruko Boulevard Tekno Blok F No.8, Desa/Kelurahan Setu, Kec.
                   Setu, Kota Tangerang Selatan, Provinsi Banten, 15314.
                   INDONESIA
                 </p>
               </div>
               <div>
-                <p className="font-[300] text-white text-[16px] leading-6  ">
+                <p className="font-[300] text-white text-clamp-16 leading-6  ">
                   Email: <span className="font-[400]">sales@bitsiber.com</span>
                 </p>
-                <p className="font-[300] text-white text-[16px] leading-6  ">
+                <p className="font-[300] text-white text-clamp-16 leading-6  ">
                   Telephone: <span className="font-[400]">0812-108-5346</span>
                 </p>
               </div>
@@ -110,7 +110,7 @@ const FooterComponent = () => {
           </div>
         </div>
       </div>
-      <div className="text-center font-[400] text-[14px] h-fit py-4 z-30 bg-[#083690] relative">
+      <div className="text-center font-[400] text-clamp-14 h-fit py-4 z-30 bg-[#083690] relative px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px]">
         <p>Copyright © 2024 | Powered by PT. BIT Informatika Siber</p>
       </div>
     </footer>

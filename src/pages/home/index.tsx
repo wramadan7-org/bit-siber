@@ -21,7 +21,7 @@ import VisitorManagementSystemImage from "../../assets/images/visitor-management
 import FBL500 from "../../assets/images/FBL500 1.png";
 import FBL520 from "../../assets/images/FBL520 v1 1.png";
 import TicketingManagementSystem from "../../assets/images/ticketing-group.png";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { documentationTicketingManagementSystems } from "../../constants/swiper";
 import { benefitCards, usabilityCards } from "../../constants/card";
 import FooterComponent from "../../components/footer/FooterComponent";
@@ -35,6 +35,7 @@ const HomePage = () => {
   document.title = "BIT Siber";
 
   const ticketingSwiperRef = useRef<SwiperClass | null>(null);
+  const [scrolledState, setScrolledState] = useState<boolean>(false);
 
   const updatesSlideRotation = useCallback((swiper: SwiperClass) => {
     const slides = swiper.slides;
@@ -50,6 +51,15 @@ const HomePage = () => {
         }
       }
     });
+  }, []);
+
+  const handleScroll = useCallback(() => {
+    const offset = window.scrollY;
+    if (offset > 50) {
+      setScrolledState(true);
+    } else {
+      setScrolledState(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -71,10 +81,22 @@ const HomePage = () => {
     }
   }, [updatesSlideRotation]);
 
+  useEffect(() => {
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
+
   return (
-    <section className="mx-auto ">
-      <section className="sticky top-0 bg-transparent z-50">
-        <NavbarComponent />
+    <section className="mx-auto max-w-[1994px]">
+      <section
+        className={`sticky top-0 bg-transparent h-0 z-50 ${scrolledState ? "scrolled-navbar" : ""}`}
+      >
+        <NavbarComponent isScrolled={scrolledState} />
       </section>
 
       <section className="relative h-screen pb-[82px] max-h-[600px] sm:max-h-[686px] overflow-hidden">
@@ -117,7 +139,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="relative h-fit py-32 max-h-[552px] bg-[url('assets/images/need-solution.png')] bg-cover bg-center px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px]">
+      <section className="relative h-fit py-32 max-h-[552px] bg-[url('assets/images/need-solution.png')] bg-cover bg-center px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] overflow-hidden">
         <div className="flex flex-col justify-center items-center">
           <span className="font-[800] text-clamp-26 text-center text-[#ffffff]">
             Need a solution? We've got you covered.
@@ -126,7 +148,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="relative grid grid-cols-2 w-full h-fit min-h-[451px] bg-[#072B72] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] items-center justify-center -mt-1 gap-3 py-20 lg:py-0">
+      <section className="relative grid grid-cols-2 w-full h-fit min-h-[451px] bg-[#072B72] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] items-center justify-center -mt-1 gap-3 py-20 lg:py-0 overflow-hidden">
         <div className="flex flex-col col-span-2 lg:col-span-1 items-center justify-center lg:items-start lg:justify-center h-full gap-5 lg:pr-10">
           <span className="font-[800] text-[32px] text-[#ffffff] text-center lg:text-start">
             EXPLORE OUR PRODUCTS
@@ -256,7 +278,7 @@ const HomePage = () => {
               </span>
             </SwiperSlide> */}
           </Swiper>
-          <div className="custom-navigation-ticketing flex flex-row justify-between absolute -left-4 -right-4 sm:-left-10 sm:-right-10 md:-left-12 md:-right-12 top-1/2 h-10">
+          <div className="custom-navigation-smart-patrol flex flex-row justify-between absolute -left-4 -right-4 sm:-left-10 sm:-right-10 md:-left-12 md:-right-12 top-1/2 h-10">
             <div className="custom-prev-smart-patrol cursor-pointer z-20">
               <IoMdArrowDropleftCircle className="w-10 h-10 z-20 text-[#0569d3] sm:text-white" />
             </div>
@@ -267,7 +289,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="relative flex flex-row items-center justify-center w-full min-h-[1117px] h-fit bg-[url('assets/images/smart-patrol.png')] py-20 md:py-0 bg-cover bg-center">
+      <section className="relative flex flex-row items-center justify-center w-full min-h-[1117px] h-fit bg-[url('assets/images/smart-patrol.png')] py-20 md:py-0 bg-cover bg-center overflow-hidden">
         <div className="flex flex-col md:flex-row gap-20 md:gap-0 items-center px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px]">
           <div className="flex flex-1">
             <img
@@ -307,9 +329,9 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="relative flex items-start justify-center w-full min-h-[838px] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px]">
+      <section className="relative flex items-start justify-center w-full min-h-[838px] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] overflow-hidden">
         <div className="absolute transform top-14 left-1/2 -translate-x-1/2 flex flex-col justify-start items-center h-full w-full max-w-[396px]  max-h-[191px] gap-5 align-bottom z-20">
-          <span className="text-[#043FB3] font-[800] text-clamp-50 text-center lg:leading-[60px]">
+          <span className="text-[#043FB3] font-[800] text-clamp-50 text-center leading-none lg:leading-[50px]">
             Documentation Smart Patrol
           </span>
           <button
@@ -360,7 +382,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="relative flex items-center justify-center w-full min-h-[1025px] bg-[#F6F6F6] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] py-20 md:py-0">
+      <section className="relative flex items-center justify-center w-full min-h-[1025px] bg-[#F6F6F6] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] py-20 md:py-0 overflow-hidden">
         <div className="relative flex flex-col md:flex-row items-center">
           <div className="bg-[#D7E4FC] h-full md:h-screen md:max-h-[586px] rounded-[10px] w-full max-w-[597px] px-[26px] py-20 md:py-10 flex flex-col gap-16">
             <div className="text-[#072B72] text-center flex flex-col items-center justify-center gap-5">
@@ -411,7 +433,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="relative h-fit w-full items-center flex justify-center bg-[url('assets/images/visitor-management.png')] bg-cover bg-center md:min-h-[1173px] py-20 md:py-0">
+      <section className="relative h-fit w-full items-center flex justify-center bg-[url('assets/images/visitor-management.png')] bg-cover bg-center md:min-h-[1173px] py-20 md:py-0 overflow-hidden">
         <div className="flex flex-col-reverse md:flex-row items-center gap-20 md:gap-0 px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px]">
           <div className="flex flex-1 flex-col gap-3">
             <TitleComponent
@@ -459,10 +481,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="min-h-[822px] bg-[#F2F2F2] flex flex-col px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px]">
+      <section className="min-h-[822px] bg-[#F2F2F2] flex flex-col px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] overflow-hidden">
         <div className="pt-[57px] flex flex-col gap-10">
           <div className="flex flex-col items-center justify-center gap-5">
-            <span className="text-[#043FB3] font-[800] lg:leading-[60px] text-clamp-50 text-center">
+            <span className="text-[#043FB3] font-[800] leading-none lg:leading-[50px] text-clamp-50 text-center">
               Documentation Visiting
               <br /> Management System
             </span>
@@ -510,7 +532,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="flex flex-col lg:flex-row min-h-[1021px] h-fit bg-[#F6F6F6] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] py-[100px] gap-10 lg:gap-0">
+      <section className="flex flex-col lg:flex-row min-h-[1021px] h-fit bg-[#F6F6F6] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] py-[100px] gap-10 lg:gap-0 overflow-hidden">
         <div className="flex flex-col flex-1 items-center justify-center">
           <div className="gap-y-[20px] flex flex-col items-center lg:items-start justify-center lg:justify-start text-center lg:text-start leading-none lg:leading-[50px]">
             <span className="text-[#072B72] font-[600] text-clamp-45 ">
@@ -622,9 +644,9 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="flex flex-col w-full h-full max-h-[846px] bg-[#F2F2F2] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] items-center justify-start pt-[87.5px] gap-[62px]">
+      <section className="flex flex-col w-full h-full max-h-[846px] bg-[#F2F2F2] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] items-center justify-start pt-[87.5px] gap-[62px] overflow-hidden">
         <div className="flex flex-col items-center justify-start gap-6">
-          <span className="font-[800] text-clamp-50 lg:leading-[60px] text-[#043FB3] text-center ">
+          <span className="font-[800] text-clamp-50 leading-none lg:leading-[50px] text-[#043FB3] text-center ">
             Documentation Ticketing <br /> Management System
           </span>
           <button
@@ -639,7 +661,7 @@ const HomePage = () => {
         </div>
         <div className="relative flex flex-1 min-h-[505px] w-full overflow-hidden">
           <Swiper
-            slidesPerView={5}
+            slidesPerView={1}
             centeredSlides={true}
             spaceBetween={10}
             pagination={true}
@@ -652,27 +674,54 @@ const HomePage = () => {
               updatesSlideRotation(swiper);
             }}
             keyboard={true}
-            modules={[Keyboard]}
+            navigation={{
+              nextEl: ".custom-next-ticketing",
+              prevEl: ".custom-prev-ticketing",
+            }}
+            modules={[Keyboard, Navigation]}
+            breakpoints={{
+              372: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              974: {
+                slidesPerView: 3,
+                spaceBetween: 10,
+              },
+              1096: {
+                slidesPerView: 4,
+                spaceBetween: 10,
+              },
+              1627: {
+                slidesPerView: 5,
+                spaceBetween: 20,
+              },
+            }}
           >
             {documentationTicketingManagementSystems?.map(
               (item: { image: string }, index: number) => (
-                <SwiperSlide
-                  key={index}
-                  className="max-w-[226px] min-w-[226px] min-h-[484px]"
-                >
+                <SwiperSlide key={index} className=" min-h-[484px]">
                   <img src={item?.image} alt={`ticketing-${index + 1}`} />
                 </SwiperSlide>
               ),
             )}
           </Swiper>
+          <div className="custom-navigation-ticketing flex flex-row justify-between absolute left-0 right-0 sm:left-2 sm:right-2 md:left-0 md:right-0 top-1/2 h-10">
+            <div className="custom-prev-ticketing cursor-pointer z-20">
+              <IoMdArrowDropleftCircle className="w-10 h-10 z-20 text-[#0569d3] sm:text-white" />
+            </div>
+            <div className="custom-next-ticketing cursor-pointer z-20">
+              <IoMdArrowDroprightCircle className="w-10 h-10 z-20 text-[#0569d3] sm:text-white" />
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="flex flex-col w-full h-fit max-w-[1879px] bg-[#F6F6F6] py-[100px] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] gap-16 lg:gap-[120px] ">
+      <section className="flex flex-col w-full h-fit bg-[#F6F6F6] py-[100px] px-[15px] sm:px-[50px] md:px-[90px] lg:px-[120px] xl:px-[171px] gap-16 lg:gap-[120px] overflow-hidden">
         <div className="grid grid-cols-12 md:gap-10">
           <div className="col-span-12 lg:col-span-4 py-5 flex items-center justify-start">
             <div className="flex flex-col gap-5">
-              <span className="font-[600] text-clamp-36 text-[#072B72]  leading-[50px]">
+              <span className="font-[600] text-clamp-36 text-[#072B72]  leading-[30px] lg:leading-[45px]">
                 Benefits of Concert <br /> Ticketing App
               </span>
               <div className="h-[9px] w-[94px] bg-[#072B72] " />
@@ -696,10 +745,10 @@ const HomePage = () => {
                     />
                   </div>
                   <div className="pt-5 pb-8 px-2 flex flex-col gap-[15px]">
-                    <span className="font-[600] text-[#072B72] text-[24px]  ">
+                    <span className="font-[600] text-[#072B72] text-[24px] leading-none lg:leading-[30px]">
                       {item.title}
                     </span>
-                    <span className="font-[400] text-[#90A3C9] text-[16px]  ">
+                    <span className="font-[400] text-[#90A3C9] text-[16px]">
                       {item.description}
                     </span>
                   </div>
@@ -711,7 +760,7 @@ const HomePage = () => {
         <div className="grid grid-cols-12 md:gap-10">
           <div className="col-span-12 lg:col-span-4 py-5 flex items-center justify-start">
             <div className="flex flex-col gap-5">
-              <span className="font-[600] text-clamp-36 text-[#072B72]  leading-[50px]">
+              <span className="font-[600] text-clamp-36 text-[#072B72]  leading-[30px] lg:leading-[45px]">
                 Usability of Concert <br /> Ticketing Application
               </span>
               <div className="h-[9px] w-[94px] bg-[#072B72] " />
@@ -735,10 +784,10 @@ const HomePage = () => {
                     />
                   </div>
                   <div className="pt-5 pb-8 px-2 flex flex-col gap-[15px]">
-                    <span className="font-[600] text-[#072B72] text-[24px]  ">
+                    <span className="font-[600] text-[#072B72] text-[24px] leading-none lg:leading-[30px]">
                       {item.title}
                     </span>
-                    <span className="font-[400] text-[#90A3C9] text-[16px]  ">
+                    <span className="font-[400] text-[#90A3C9] text-[16px]">
                       {item.description}
                     </span>
                   </div>
